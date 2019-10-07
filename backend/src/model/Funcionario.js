@@ -7,14 +7,19 @@ const funcionarioSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-    carteirinha: {
+    
+    sexo: {
         type: String,
+        required: true
+    },
+    
+    carteirinha: {
+        type: Number,
         required: true
     },
 
     salario: {
-        type: Number,
+        type: NumberDecimal,
         required: true
     },
     
