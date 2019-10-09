@@ -15,11 +15,12 @@ const funcionarioSchema = new mongoose.Schema({
     
     carteirinha: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
 
     salario: {
-        type: NumberDecimal,
+        type: mongoose.SchemaTypes.Decimal128,
         required: true
     },
     
