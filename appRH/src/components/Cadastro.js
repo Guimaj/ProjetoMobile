@@ -1,10 +1,22 @@
-import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image, KeyboardAvoidingView, Platform} from 'react-native';
+import React, {useState} from 'react';
+import {
+    View, 
+    Text, 
+    StyleSheet, 
+    TouchableOpacity, 
+    Image, 
+    KeyboardAvoidingView, 
+    Platform
+} from 'react-native';
+
+import { Dropdown } from 'react-native-material-dropdown';
 import Input from '../components/Input';
 import logo from '../assets/logo.png'
 
 
 function Cadastro(){
+
+    const [sexos, setSexos] = useState([{value:'Masculino'},{value:'Feminino'}]);
     return(
         <KeyboardAvoidingView style={styles.container} enabled={Platform.OS == 'ios'} behavior='padding'>
             <Image source={logo}/>
@@ -12,24 +24,33 @@ function Cadastro(){
                 <Input 
                 placeholder="Nome" 
                 name="user"
-                size={22}
+                size={20}
                 />
                 <Input 
                 placeholder="Salário"
                 name="money"
                 keyboardType="numeric"
-                size={20}
+                size={18}
                 />
                 <Input 
                 placeholder="Carteirinha"
                 name="address-card"
                 keyboardType="numeric"
-                size={20}
+                size={18}
                 />
+                <Input 
+                placeholder="Cargo"
+                name="briefcase"
+                keyboardType="default"
+                size={18}
+                />
+
+                <Dropdown data={sexos} labelFontSize={15} value={sexos[0].value}/>
                 <TouchableOpacity style={styles.btn}>
                     <Text style={styles.btn_text}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>
+            
         </KeyboardAvoidingView>
     );
 }
@@ -39,23 +60,23 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:'#A5F7D9'
     },
 
     form: {
         justifyContent:'center',
         alignSelf:'stretch',
         flexDirection:'column',
-        paddingHorizontal:35,
+        paddingHorizontal:30,
+        
     },
 
     btn: {
         backgroundColor:'#FE8271',
         alignSelf: 'stretch',
-        borderRadius: 30,
+        borderRadius: 6,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 5,
+        marginTop: 10,
         paddingVertical:5
     },
 

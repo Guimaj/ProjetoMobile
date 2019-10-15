@@ -23,15 +23,17 @@ const styles = StyleSheet.create({
     },  
 
     input: {
-        fontSize:18,
+        fontSize:16,
         borderRadius: 30,
         paddingHorizontal: 50,
-        backgroundColor:'rgba(255, 255, 255, 0.4)'
+        backgroundColor:'rgba(255, 255, 255, 0.4)',
+        height: 40,
+        borderWidth:1
     },
 
     icon:{
         alignSelf:'flex-start',
-        top: 35,
+        top: 30,
         left: 15
     }
 });
