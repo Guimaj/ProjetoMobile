@@ -1,104 +1,86 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Buttons from '../components/Buttons';
-import { whileStatement } from '@babel/types';
-import checklist24 from '../assets/checklist24.png';
 import checklist64 from '../assets/checklist64.png';
 
-class Gerenciar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
+function Gerenciar({navigation}) {
+    return (
+        <View style={styles.containerScreen}>
+            <View>
 
-    render() {
-        return (
-            <View style={{backgroundColor: "black", flex:1}}>
+                <View style={styles.space}></View>
 
-                <View>
-
-                    <View style={style.topbar}>
-                        <Image source={checklist64} style={style.imgTop} />
-                        <Text style={style.TextTopBar}>APP RH</Text>
-                    </View>
-
-                    <View style={style.space}></View>
-
-                    <View style={style.containerRight}>
-                        <View style={style.container}>
-                            <TouchableOpacity style={style.btnAdd}>
-                                <Buttons
-                                    name="user-plus"
-                                    size={40}
-                                />
-                                <Text style={style.fontButton}>
-                                    Adiconar
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={style.container}>
-                            <TouchableOpacity style={style.btnDelet}>
-                                <Buttons
-                                    name="trash-o"
-                                    size={40}
-                                />
-                                <Text style={style.fontButton}>
-                                    Deletar
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                </View>
-
-                <View style={style.containerRight}>
-
-                    <View style={style.container}>
-                        <TouchableOpacity style={style.btnUpdate}>
+                <View style={styles.containerRight}>
+                    <View style={styles.container}>
+                        <TouchableOpacity style={styles.btnAdd} onPress={() => {navigation.push('Cadastrar')}}>
                             <Buttons
-                                name="edit"
+                                name="user-plus"
                                 size={40}
                             />
-                            <Text style={style.fontButton}>
-                                Atualizar
+                            <Text style={styles.fontButton}>
+                                Adicionar
                             </Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={style.container}>
-                        <TouchableOpacity style={style.btnList}>
+                    <View style={styles.container}>
+                        <TouchableOpacity style={styles.btnDelet}>
                             <Buttons
-                                name="list-alt"
+                                name="trash-o"
                                 size={40}
                             />
-                            <Text style={style.fontButton}>
-                                Listar
-                            </Text>
+                            <Text style={styles.fontButton}>
+                                Deletar
+                                </Text>
                         </TouchableOpacity>
                     </View>
-
                 </View>
 
             </View>
-        );
-    }
+
+            <View style={styles.containerRight}>
+
+                <View style={styles.container}>
+                    <TouchableOpacity style={styles.btnUpdate}>
+                        <Buttons
+                            name="edit"
+                            size={40}
+                        />
+                        <Text style={styles.fontButton}>
+                            Atualizar
+                            </Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.container}>
+                    <TouchableOpacity style={styles.btnList}>
+                        <Buttons
+                            name="list-alt"
+                            size={40}
+                        />
+                        <Text style={styles.fontButton}>
+                            Listar
+                            </Text>
+                    </TouchableOpacity>
+                </View>
+
+            </View>
+
+        </View>
+    );
 }
 
-const style = StyleSheet.create({
 
-    topbar: {
-        height: 65,
-        fontSize: 15,
-        padding: 15,
-        backgroundColor: '#6ce6ad',
-        flexDirection: 'row',
+const styles = StyleSheet.create({
+
+    containerScreen: {
+        backgroundColor: "black",
+        flex: 1,
         alignItems: 'center',
     },
 
     TextTopBar: {
         fontSize: 30,
         color: "white",
-        fontWeight:'bold',
+        fontWeight: 'bold',
         justifyContent: 'center',
         alignSelf: 'center',
     },
@@ -174,10 +156,10 @@ const style = StyleSheet.create({
         color: "white",
     },
 
-    fontButton:{
+    fontButton: {
         color: "white",
         fontSize: 15,
-        fontWeight:'bold',
+        fontWeight: 'bold',
         fontFamily: "Times New Roman",
     }
 

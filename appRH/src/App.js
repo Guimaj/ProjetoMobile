@@ -1,19 +1,10 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Apresentation from './components/Apresentation';
-//import from './rotas/Apresentation';
-import Gerenciar from './components/Gerenciar';
+import React from 'react';
+import Rotas from './Rotas'
 
-let navegador = createStackNavigator(
-  {
-    Home: { screen: Apresentation },
-    Detalhes: { screen: Gerenciar },
-  },
-  {
-    headerMode: "none"
-  }
-);
-
-let App = createAppContainer(navegador);
+const App = () =>{
+  return(
+    <Rotas/>
+  )
+}
 
 export default App;
