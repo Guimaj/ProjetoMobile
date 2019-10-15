@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+<<<<<<< HEAD
     },
 
     form: {
@@ -68,6 +69,16 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         paddingHorizontal:30,
         
+=======
+        backgroundColor: '#fff',
+    },
+
+    form: {
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        flexDirection: 'column',
+        paddingHorizontal: 35,
+>>>>>>> telaInicial
     },
 
     btn: {
@@ -76,16 +87,20 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         alignItems: 'center',
         justifyContent: 'center',
+<<<<<<< HEAD
         marginTop: 10,
         paddingVertical:5
+=======
+        marginTop: 5,
+        paddingVertical: 5,
+>>>>>>> telaInicial
     },
 
     btn_text: {
         fontSize: 18,
-        fontWeight:'bold',
-        color:'#fff'
+        fontWeight: 'bold',
+        color: '#fff',
     }
     
-
 })
 export default Cadastro;
