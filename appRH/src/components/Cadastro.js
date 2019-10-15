@@ -39,14 +39,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:'#A5F7D9'
+        backgroundColor: '#fff',
     },
 
     form: {
-        justifyContent:'center',
-        alignSelf:'stretch',
-        flexDirection:'column',
-        paddingHorizontal:35,
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        flexDirection: 'column',
+        paddingHorizontal: 35,
     },
 
     btn: {
@@ -56,15 +56,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 5,
-        paddingVertical:5
+        paddingVertical: 5,
     },
 
     btn_text: {
         fontSize: 18,
-        fontWeight:'bold',
-        color:'#fff'
+        fontWeight: 'bold',
+        color: '#fff',
     }
     
-
 })
 export default Cadastro;
