@@ -1,8 +1,9 @@
-import { createAppContainer, createSwitchNavigator} from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Apresentation from './components/Apresentation';
 import Gerenciar from './components/Gerenciar';
 import Cadastro from './components/Cadastro';
+import List from './components/List';
 
 //rotas da aplicação
 
@@ -18,7 +19,10 @@ const Rotas = createAppContainer(
 
         Gerenciar: {
             screen: Gerenciar,
-            navigationOptions: {
+            navigationOptions: { 
+                headerStyle:{
+                    backgroundColor: '#6ce6ad',
+                },
                 headerTitle:'App RH'
             }
         },
@@ -27,6 +31,13 @@ const Rotas = createAppContainer(
             screen: Cadastro,
             navigationOptions: {
                 headerTitle:'Cadastro'
+            }
+        },
+
+        Listar: {
+            screen: List,
+            navigationOptions: {
+                headerTitle: 'List'
             }
         }
     })

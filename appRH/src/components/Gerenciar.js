@@ -51,7 +51,7 @@ function Gerenciar({navigation}) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.btnList}>
+                    <TouchableOpacity style={styles.btnList} onPress={() => {navigation.push('Listar')}}>
                         <Buttons
                             name="list-alt"
                             size={40}
@@ -72,7 +72,7 @@ function Gerenciar({navigation}) {
 const styles = StyleSheet.create({
 
     containerScreen: {
-        backgroundColor: "black",
+        backgroundColor: "white",
         flex: 1,
         alignItems: 'center',
     },
