@@ -47,20 +47,20 @@ module.exports = {
 
     async update(req, res){
       const {carteirinha} = req.params;
-      const funcionarios = await Funcionario.findByIdAndUpdate(carteirinha, req.body).exec();
-      if (!funcionarios) {
-        throw new Error('Error')
+      try{
+        const funcionarios = await Funcionario.findOneAndUpdate({carteirinha:carteirinha}, req.body, {new:true});
+      }catch(err){
+        return res.json({erro:err});
       }
-        return funcionarios;
     },
 
     async remove(req, res){
       const {carteirinha} = req.params;
-      const funcionarios = await Funcionario.findByIdAndRemove(carteirinha).exec();
-      if (!funcionarios) {
-        throw new Error('Error')
+      try{
+        const funcionarios = await Funcionario.findOneAndRemove({carteirinha:carteirinha}, req.body);
+      }catch(err){
+        return res.json({erro:err});
       }
-        return funcionarios;
     },
 
 
