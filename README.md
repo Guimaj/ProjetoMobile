@@ -12,8 +12,9 @@ Fazer um app que permita:
   - Eliminar um usuário do sistema.
 ```
 
-
+```
 ### Integrantes
   - André Guimarães Jorge                 22118115-9
   - João Victor da Silva Couto            22118022-7
-  - Kelvin Lins Silva                     22118
+  - Kelvin Lins Silva                     22118148-0
+```
