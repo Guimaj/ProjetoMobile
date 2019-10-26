@@ -11,7 +11,7 @@ module.exports = {
         })
 
         return res.json(funcionario);
-               
+
     },
 
     async showByOffice(req, res){
@@ -45,6 +45,23 @@ module.exports = {
         return res.json(funcionarios);
     },
 
+    async update(req, res){
+      const {carteirinha} = req.params;
+      const funcionarios = await Funcionario.findByIdAndUpdate(carteirinha, req.body).exec();
+      if (!funcionarios) {
+        throw new Error('Error')
+      }
+        return funcionarios;
+    },
+
+    async remove(req, res){
+      const {carteirinha} = req.params;
+      const funcionarios = await Funcionario.findByIdAndRemove(carteirinha).exec();
+      if (!funcionarios) {
+        throw new Error('Error')
+      }
+        return funcionarios;
+    },
+
 
 }
-
