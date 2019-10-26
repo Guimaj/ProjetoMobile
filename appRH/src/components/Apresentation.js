@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import checklist from '../assets/logo.png'
+import api from '../services/api';
 
 function Apresentation({navigation}) {
- 
+
     return (
       <View style={style.container}>
         <Image source={checklist}/>
