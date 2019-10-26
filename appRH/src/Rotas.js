@@ -37,6 +37,9 @@ const Rotas = createAppContainer(
         Listar: {
             screen: List,
             navigationOptions: {
+                headerStyle:{
+                    backgroundColor: '#6ce6ad',
+                },
                 headerTitle: 'List'
             }
         }

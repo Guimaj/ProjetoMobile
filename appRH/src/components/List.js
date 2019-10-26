@@ -1,30 +1,38 @@
 import React from "react";
-import { FlatList, SafeAreaView, StyleSheet, Text, View, Input, Image } from "react-native";
-import menUser from '../assets/menUser.png';
+import { FlatList, SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity, Dropdown} from "react-native";
+import { Dropdown } from 'react-native-material-dropdown';
+import Buttons from '../components/Buttons';
 import team from '../assets/team.png';
 
 class List extends React.Component {
     state = {
         data: [
-            { id: "00", name: "Relâmpago McQueen", sexo: "M" },
-            { id: "01", name: "Agente Tom Mate", sexo: "M" },
-            { id: "02", name: "Doc Hudson", sexo: "M" },
-            { id: "03", name: "Cruz Ramirez", sexo: "M" },
-            { id: "04", name: "kelvin Lins", sexo: "M" },
-            { id: "05", name: "Fernando Zandonadi", sexo: "M" },
-            { id: "06", name: "Camila Aparecida", sexo: "F" },
-            { id: "07", name: "Fabio Bernardes", sexo: "M" },
-            { id: "09", name: "Adriana", sexo: "F" },
-            { id: "10", name: "Helio Gomes", sexo: "M" },
-            { id: "11", name: "Tiago catchorro", sexo: "M" },
-            { id: "12", name: "Thiago soa", sexo: "M" },
-            { id: "13", name: "Kleiton", sexo: "M" },
+            { id: "00", name: "Relâmpago McQueen o brabo dos barbos", sexo: "M", cargo: "Pedreiro"},
+            { id: "01", name: "Agente Tom Mate", sexo: "M", cargo: "Pedreiro" },
+            { id: "02", name: "Doc Hudson", sexo: "M", cargo: "Pedreiro" },
+            { id: "03", name: "Cruz Ramirez", sexo: "M", cargo: "Pedreiro" },
+            { id: "04", name: "kelvin Lins", sexo: "M", cargo: "Pedreiro" },
+            { id: "05", name: "Fernando Zandonadi", sexo: "M", cargo: "Pedreiro" },
+            { id: "06", name: "Camila Aparecida", sexo: "F", cargo: "Pedreiro" },
+            { id: "07", name: "Fabio Bernardes", sexo: "M", cargo: "Pedreiro" },
+            { id: "09", name: "Adriana", sexo: "F", cargo: "Pedreiro" },
+            { id: "10", name: "Helio Gomes", sexo: "M", cargo: "Pedreiro" },
+            { id: "11", name: "Tiago catchorro", sexo: "M", cargo: "Pedreiro" },
+            { id: "12", name: "Thiago soa", sexo: "M", cargo: "Pedreiro" },
+            { id: "13", name: "Kleiton", sexo: "M", cargo: "Pedreiro" },
+        ],
+        sexos: [
+            "Masculino",
+            "Feminino"
         ]
     };
     render() {
         return (
             <View>
-                <SafeAreaView style={{ backgroundColor: 'white' }}>
+                <View>
+                    <Dropdown datas={this.sexos} labelFontSize={15} value={this.sexos}></Dropdown>
+                </View>
+                <SafeAreaView style={{ backgroundColor: 'white' }}>    
                     <FlatList
                         data={this.state.data}
                         keyExtractor={item => item.id}
@@ -32,9 +40,25 @@ class List extends React.Component {
                             return (
                                 <View style={styles.item}>
                                     <Image source={team} style={styles.imageCard} />
-                                    <View style={{flexDirection: 'column'}}>
+                                    <View style={styles.text}>
                                         <Text style={styles.text}>Nome: {item.name}</Text>
                                         <Text style={styles.text}>Sexo: {item.sexo}</Text>
+                                        <Text style={styles.text}>Id: {item.id}</Text>
+                                        <Text style={styles.text}>cargo: {item.cargo}</Text>
+                                    </View>
+                                    <View style={{Left: 5}}>
+                                        <TouchableOpacity style={styles.buttonDelete}>
+                                            <Buttons
+                                                name="trash"
+                                                size={20}
+                                            />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.buttonDelete}>
+                                            <Buttons
+                                                name="edit"
+                                                size={20}
+                                            />
+                                        </TouchableOpacity>
                                     </View>
                                 </View>
                             );
@@ -65,15 +89,28 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 15,
+        //padding: 1,
+        fontSize: 12,
         marginLeft: 25,
+        width: 180,
+        flexDirection: 'column',
         fontWeight: 'bold',
         color: "white",
         alignItems: 'center',
-        padding: 3,
-        //textDecorationLine: "underline",
-        //textDecorationStyle: "solid",
-        //textDecorationColor: "white"
+        justifyContent: "space-between",
+        backgroundColor: 'transparent',
+    },
+
+    buttonDelete: {
+        height: 30,
+        width: 30,
+        borderRadius: 5,
+        flexDirection: 'column',
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+        marginRight: 25,
+        paddingLeft: 10,
+        //backgroundColor: 'red',
     }
 });
 
