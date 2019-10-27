@@ -46,21 +46,23 @@ module.exports = {
     },
 
     async update(req, res){
-      const {carteirinha} = req.params;
-      const funcionarios = await Funcionario.findByIdAndUpdate(carteirinha, req.body).exec();
-      if (!funcionarios) {
-        throw new Error('Error')
-      }
-        return funcionarios;
+        try{
+            const {carteirinha} = req.params;
+            const funcionario = await Funcionario.findOneAndUpdate({carteirinha},req.body,{new:true});
+            res.json(funcionario);
+        }catch(error){
+            res.json({erro:error});
+        }
     },
 
     async remove(req, res){
-      const {carteirinha} = req.params;
-      const funcionarios = await Funcionario.findByIdAndRemove(carteirinha).exec();
-      if (!funcionarios) {
-        throw new Error('Error')
-      }
-        return funcionarios;
+        try{
+            const {carteirinha} = req.params;
+            const funcionario = await Funcionario.findOneAndRemove({carteirinha});
+            res.json(funcionario);
+        }catch(error){
+            res.json({erro:error});
+        }
     },
 
 

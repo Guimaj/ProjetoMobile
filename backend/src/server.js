@@ -1,6 +1,7 @@
 const express = require('express');
 const rotas = require('./rotas');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('../secrets');
 
 const DB_USERNAME = process.env.DB_USERNAME;
@@ -11,11 +12,13 @@ const api = express();
 
 // permite o uso do json
 api.use(express.json());
-  
+api.use(cors());
+
 // conexão com o banco mongoDB
 mongoose.connect(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true
 }).then(()=> {
   console.log('mongoDB conectado');
 }).catch((err)=> {
@@ -24,4 +27,4 @@ mongoose.connect(uri, {
 
 
 api.use(rotas);
-api.listen(8080, console.log('server rodando...'));
+api.listen(3333, console.log('server rodando...'));
