@@ -11,6 +11,8 @@ function Input(props){
             style={styles.input} 
             placeholderTextColor='#666'
             keyboardType={props.keyboardType}
+            onChangeText={props.onChangeText}
+            value={props.value}
             /> 
         </View>
     );

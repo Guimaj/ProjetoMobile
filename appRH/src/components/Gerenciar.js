@@ -7,7 +7,7 @@ function Gerenciar({ navigation }) {
     return (
         <View style={styles.containerScreen}>
 
-            <View style={styles.space}></View>
+            
 
             <View style={styles.containerRight}>
                 <View style={styles.container}>
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         flex: 1,
         alignItems: 'center',
+        justifyContent:'center'
     },
 
     TextTopBar: {
@@ -65,13 +66,6 @@ const styles = StyleSheet.create({
         top: 0,
     },
 
-    space: {
-        backgroundColor: 'transparent',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 25,
-    },
 
     containerRight: {
         flexDirection: 'row',
