@@ -6,11 +6,12 @@ module.exports = {
     async store(req, res){
         const {nome, sexo, carteirinha, salario, cargo } = req.body;
 
-        const funcionario = await Funcionario.create({nome, sexo, carteirinha, salario, cargo}).catch((err)=>{
-            return res.json({erro: err});
-        })
-
-        return res.json(funcionario);
+        try{
+            const funcionarios = await Funcionario.create({nome,sexo,carteirinha,salario,cargo});
+            return res.json(funcionarios);
+        }catch(error){
+            return res.json({erro:error});
+        }
 
     },
 
@@ -18,50 +19,56 @@ module.exports = {
 
         const {cargo} = req.query;
 
-        const funcionarios = await Funcionario.find({cargo}).catch((err)=>{
-            return res.json({erro: err});
-        })
-
-        return res.json(funcionarios);
+        try{
+            const funcionario = await Funcionario.find({cargo});
+            return res.json(funcionario);;
+        }catch(error){
+            return res.json({erro:error});
+        }
     },
 
     async showByGender(req, res){
 
         const {sexo} = req.query;
 
-        const funcionarios = await Funcionario.find({sexo}).catch((err)=>{
-            return res.json({erro: err});
-        })
-
-        return res.json(funcionarios);
+        try{
+            const funcionario = await Funcionario.find({sexo});
+            return res.json(funcionario);;
+        }catch(error){
+            return res.json({erro:error});
+        }
     },
 
     async index(req, res){
 
-        const funcionarios = await Funcionario.find().catch((err)=>{
-            return res.json({erro: err});
-        })
-
-        return res.json(funcionarios);
+        try{
+            const funcionarios = await Funcionario.find();
+            return res.json(funcionarios);;
+        }catch(error){
+            return res.json({erro:error});
+        }
     },
 
     async update(req, res){
+        
+        const {carteirinha} = req.params;
         try{
-            const {carteirinha} = req.params;
             const funcionario = await Funcionario.findOneAndUpdate({carteirinha},req.body,{new:true});
-            res.json(funcionario);
+            return res.json(funcionario);
         }catch(error){
-            res.json({erro:error});
+            return res.json({erro:error});
         }
     },
 
     async remove(req, res){
+
+        const {carteirinha} = req.params;
+
         try{
-            const {carteirinha} = req.params;
             const funcionario = await Funcionario.findOneAndRemove({carteirinha});
-            res.json(funcionario);
+            return res.json(funcionario);
         }catch(error){
-            res.json({erro:error});
+            return res.json({erro:error});
         }
     },
 
