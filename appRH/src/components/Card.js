@@ -5,11 +5,7 @@ import team from '../assets/team.png';
 import api from '../services/api';
 
 
-export default function Card({navigation},props) {
-
-    function Editar(){
-            navigation.navigate('Editar')
-    }
+export default function Card({nav},props) {
 
     return (
         <View style={styles.containerFuncionario}>
@@ -25,7 +21,7 @@ export default function Card({navigation},props) {
                 <TouchableOpacity onPress={()=>api.delete(`/funcionarios/${props.carteirinha}`)}>
                     <Icons name='trash' size={20} color='black'/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={Editar}>   
+                <TouchableOpacity onPress={()=>nav.navigate('Editar')}>   
                     <Icons name='edit' size={16} color='black'/>
                 </TouchableOpacity>
             </View>             

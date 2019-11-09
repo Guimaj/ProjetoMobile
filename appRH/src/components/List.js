@@ -53,7 +53,7 @@ function List({navigation}) {
             </View>
             <FlatList
                 data={funcionarios}
-                renderItem={({ item }) => <Card key={item._id} nome={item.nome} sexo={item.sexo} cargo={item.cargo} salario={item.salario["$numberDecimal"]} carteirinha={item.carteirinha} />}
+                renderItem={({ item }) => <Card nav={navigation} key={item._id} nome={item.nome} sexo={item.sexo} cargo={item.cargo} salario={item.salario["$numberDecimal"]} carteirinha={item.carteirinha} />}
                 keyExtractor={item => item._id}
             />
         </SafeAreaView>
