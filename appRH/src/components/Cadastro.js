@@ -5,6 +5,7 @@ import {
     StyleSheet,
     TouchableOpacity,
     TextInput,
+    Alert,
     Picker,
     KeyboardAvoidingView,
     Platform
@@ -14,20 +15,29 @@ import api from '../services/api';
 
 import Input from '../components/Input';
 
-function Cadastro() {
+function Cadastro({navigation}) {
 
     const [funcionario, setFuncionario] = useState({
         nome: '',
         cargo: '',
         salario: 0,
         carteirinha: 0,
-        sexo: ''
+        sexo: 'masculino'
     });
+
 
     async function postFuncionario() {
         try {
             const myFunc = await api.post('/funcionarios', funcionario);
             console.log(myFunc.data);
+            Alert.alert(
+                'Funcionário Cadastrado!',
+                `Funcionário(a) ${myFunc.data.nome} cadastrado com sucesso!`,
+                [
+                    { text: 'OK', onPress: () => navigation.navigate('Gerenciar')},
+                ],
+                { cancelable: false },
+            );
         } catch (error) {
             console.log(error);
         }
@@ -43,9 +53,9 @@ function Cadastro() {
                 <Input value={funcionario.carteirinha} onChangeText={carteirinha => setFuncionario({ ...funcionario, carteirinha })} placeholder="Carteirinha" name="address-card" size={18} keyboardType="numeric" />
                 <Picker
                     selectedValue={funcionario.sexo}
-                    style={{ height: 50, width: 200 }}
+                    style={styles.sexo}
                     onValueChange={(itemValue, itemIndex) =>
-                        setFuncionario({...funcionario,sexo:itemValue})
+                        setFuncionario({ ...funcionario, sexo: itemValue })
                     }>
                     <Picker.Item label="Masculino" value="masculino" />
                     <Picker.Item label="Feminino" value="feminino" />
@@ -73,6 +83,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
     },
 
+    sexo: {
+        height: 50,
+        fontWeight: 'bold'
+    },
+
     btn: {
         backgroundColor: '#FE8271',
         alignSelf: 'stretch',
@@ -84,7 +99,7 @@ const styles = StyleSheet.create({
     },
 
     btn_text: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#fff'
     }

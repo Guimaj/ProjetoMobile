@@ -21,16 +21,16 @@ const Rotas = createAppContainer(
             screen: Gerenciar,
             navigationOptions: { 
                 headerStyle:{
-                    backgroundColor: '#6ce6ad',
+                    headerTransparent:true
                 },
-                headerTitle:'App RH'
+                headerTitle:'Gerenciar'
             }
         },
 
         Cadastrar: {
             screen: Cadastro,
             navigationOptions: {
-                headerTitle:'Cadastro'
+                headerTitle:'Cadastro de Funcionário'
             }
         },
 
@@ -38,9 +38,9 @@ const Rotas = createAppContainer(
             screen: List,
             navigationOptions: {
                 headerStyle:{
-                    backgroundColor: '#6ce6ad',
+                    //backgroundColor: '#6ce6ad',
                 },
-                headerTitle: 'List'
+                headerTitle: 'Lista de Funcionários'
             }
         }
     })

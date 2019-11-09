@@ -1,15 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Buttons from '../components/Buttons';
-import checklist64 from '../assets/checklist64.png';
 
 function Gerenciar({ navigation }) {
     return (
         <View style={styles.containerScreen}>
-
             
-
-            <View style={styles.containerRight}>
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.btnAdd} onPress={() => { navigation.push('Cadastrar') }}>
                         <Buttons
@@ -20,11 +16,7 @@ function Gerenciar({ navigation }) {
                             Adicionar
                         </Text>
                     </TouchableOpacity>
-                </View>
-
-            </View>
-
-            <View style={styles.containerRight}>
+                </View>            
 
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.btnList} onPress={() => { navigation.push('Listar') }}>
@@ -38,7 +30,7 @@ function Gerenciar({ navigation }) {
                     </TouchableOpacity>
                 </View>
 
-            </View>
+            
 
         </View>
     );
@@ -54,28 +46,8 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
 
-    TextTopBar: {
-        fontSize: 30,
-        color: "white",
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        alignSelf: 'center',
-    },
-
-    imgTop: {
-        top: 0,
-    },
-
-
-    containerRight: {
-        flexDirection: 'row',
-    },
-
     container: {
         flex: 1,
-        height: 230,
-        width: 400,
-        borderWidth: 10,
         borderColor: 'transparent',
         backgroundColor: 'white',
         borderRadius: 20,
@@ -90,7 +62,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FF3D00",
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 20,
         color: "white",
     },
 
@@ -101,13 +73,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFD600",
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 20,
         color: "white",
     },
 
     fontButton: {
         color: "white",
-        fontSize: 15,
+        fontSize: 20,
         fontWeight: 'bold',
         fontFamily: "Times New Roman",
     }

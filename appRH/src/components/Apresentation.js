@@ -1,7 +1,6 @@
-import React,{useEffect, useState} from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import checklist from '../assets/logo.png'
-import api from '../services/api';
 
 function Apresentation({navigation}) {
 
@@ -32,7 +31,7 @@ const style = StyleSheet.create({
   btntext:{
       fontWeight:'bold',
       color:'#fff',
-      fontSize: 18,
+      fontSize: 22,
   },
   btncontainer:{
       marginTop:20,
