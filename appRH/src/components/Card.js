@@ -21,7 +21,7 @@ export default function Card({nav},props) {
                 <TouchableOpacity onPress={()=>api.delete(`/funcionarios/${props.carteirinha}`)}>
                     <Icons name='trash' size={20} color='black'/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>nav.navigate('Editar')}>   
+                <TouchableOpacity onPress={()=>nav.navigate('Editar', props)}>   
                     <Icons name='edit' size={16} color='black'/>
                 </TouchableOpacity>
             </View>             
