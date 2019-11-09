@@ -18,11 +18,11 @@ import Input from '../components/Input';
 function Editar({navigation}) {
 
     const [funcionario, setFuncionario] = useState({
-        nome: '',
-        cargo: '',
-        salario: 0,
-        carteirinha: 0,
-        sexo: 'masculino'
+        nome: {props.nome},
+        cargo: {props.cargo},
+        salario: {props.salario},
+        carteirinha: {props.carteirinha},
+        sexo: {props.sexo}
     });
 
 
