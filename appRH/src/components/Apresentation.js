@@ -31,7 +31,7 @@ const style = StyleSheet.create({
   btntext:{
       fontWeight:'bold',
       color:'#fff',
-      fontSize: 22,
+      fontSize: 16,
   },
   btncontainer:{
       marginTop:20,

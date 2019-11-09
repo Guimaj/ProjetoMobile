@@ -4,6 +4,7 @@ import Apresentation from './components/Apresentation';
 import Gerenciar from './components/Gerenciar';
 import Cadastro from './components/Cadastro';
 import List from './components/List';
+import Editar from './components/Editar';
 
 //rotas da aplicação
 
@@ -21,7 +22,8 @@ const Rotas = createAppContainer(
             screen: Gerenciar,
             navigationOptions: { 
                 headerStyle:{
-                    headerTransparent:true
+                    headerTransparent: true,
+                    backgroundColor: '#6ce6ad',
                 },
                 headerTitle:'Gerenciar'
             }
@@ -30,7 +32,17 @@ const Rotas = createAppContainer(
         Cadastrar: {
             screen: Cadastro,
             navigationOptions: {
-                headerTitle:'Cadastro de Funcionário'
+                headerTitle:'Cadastro de Funcionário',
+                headerStyle:{
+                    backgroundColor: '#6ce6ad',
+                },
+            }
+        },
+
+        Editar: {
+            screen: Editar,
+            navigationOptions: {
+                headerTitle:'Alteração de Funcionário'
             }
         },
 
@@ -38,7 +50,7 @@ const Rotas = createAppContainer(
             screen: List,
             navigationOptions: {
                 headerStyle:{
-                    //backgroundColor: '#6ce6ad',
+                backgroundColor: '#6ce6ad',
                 },
                 headerTitle: 'Lista de Funcionários'
             }

@@ -15,7 +15,7 @@ import api from '../services/api';
 
 import Input from '../components/Input';
 
-function Cadastro({ navigation }) {
+function Editar({navigation}) {
 
     const [funcionario, setFuncionario] = useState({
         nome: '',
@@ -30,21 +30,14 @@ function Cadastro({ navigation }) {
         try {
             const myFunc = await api.post('/funcionarios', funcionario);
             console.log(myFunc.data);
-            if (funcionario.cargo.trim()==''||funcionario.nome.trim()==''||funcionario.carteirinha.trim()==''||funcionario.salario.trim()=='') {
-                Alert.alert(
-                    'Erro de cadastro', "Erro ao cadastrar o funcionario"
-                );
-            }else{
-                Alert.alert(
-                    'Funcionário Cadastrado!',
-                    `Funcionário(a) ${myFunc.data.nome} cadastrado com sucesso!`,
-                    [
-                        { text: 'OK', onPress: () => navigation.navigate('Gerenciar') },
-                    ],
-                    { cancelable: false },
-                );
-            }
-
+            Alert.alert(
+                'Funcionário Cadastrado!',
+                `Funcionário(a) ${myFunc.data.nome} cadastrado com sucesso!`,
+                [
+                    { text: 'OK', onPress: () => navigation.navigate('Gerenciar')},
+                ],
+                { cancelable: false },
+            );
         } catch (error) {
             console.log(error);
         }
@@ -112,4 +105,4 @@ const styles = StyleSheet.create({
     }
 
 })
-export default Cadastro;
+export default Editar;

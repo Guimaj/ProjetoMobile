@@ -5,11 +5,11 @@ import team from '../assets/team.png';
 import api from '../services/api';
 
 
-export default function Card(props) {
+export default function Card({navigation},props) {
 
-
-    
-
+    function Editar(){
+            navigation.navigate('Editar')
+    }
 
     return (
         <View style={styles.containerFuncionario}>
@@ -22,11 +22,11 @@ export default function Card(props) {
                 <Text style={styles.textFuncionario}>{`Carteirinha: ${props.carteirinha}`}</Text>
             </View>
             <View style={styles.buttons}>
-                <TouchableOpacity>
-                    <Icons name='trash' size={22} color='black'/>
+                <TouchableOpacity onPress={()=>api.delete(`/funcionarios/${props.carteirinha}`)}>
+                    <Icons name='trash' size={20} color='black'/>
                 </TouchableOpacity>
-                <TouchableOpacity>   
-                    <Icons name='edit' size={18} color='black'/>
+                <TouchableOpacity onPress={Editar}>   
+                    <Icons name='edit' size={16} color='black'/>
                 </TouchableOpacity>
             </View>             
         </View>
@@ -36,12 +36,13 @@ export default function Card(props) {
 const styles = StyleSheet.create({
     containerFuncionario: {
         borderRadius: 20,
-        borderBottomWidth: 10,
+        borderBottomWidth: 5,
         borderRightWidth: 1,
         borderLeftWidth: 1,
         borderRightColor: 1,
         borderRightColor: 1,
         margin: 4,
+        height: 120,
         backgroundColor: '#6ce6ad',
         flexDirection: 'row',
         justifyContent: 'flex-start',
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
         alignSelf:'center',
     },
     textFuncionario: {
-        fontSize: 18,
+        fontSize: 14,
         color: '#403e37',
         fontWeight: 'bold'
     },

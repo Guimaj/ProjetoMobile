@@ -5,12 +5,12 @@ import Buttons from '../components/Buttons';
 function Gerenciar({ navigation }) {
     return (
         <View style={styles.containerScreen}>
-            
+                <View style={{height: 10}}/>
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.btnAdd} onPress={() => { navigation.push('Cadastrar') }}>
                         <Buttons
                             name="user-plus"
-                            size={70}
+                            size={60}
                         />
                         <Text style={styles.fontButton}>
                             Adicionar
@@ -22,7 +22,7 @@ function Gerenciar({ navigation }) {
                     <TouchableOpacity style={styles.btnList} onPress={() => { navigation.push('Listar') }}>
                         <Buttons
                             name="list-alt"
-                            size={70}
+                            size={60}
                         />
                         <Text style={styles.fontButton}>
                             Listar
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 200,
         width: 350,
+        margin: 10,
         backgroundColor: "#FFD600",
         justifyContent: 'center',
         alignItems: 'center',
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
 
     fontButton: {
         color: "white",
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         fontFamily: "Times New Roman",
     }
