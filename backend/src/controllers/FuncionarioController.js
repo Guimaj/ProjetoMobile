@@ -17,7 +17,7 @@ module.exports = {
 
     async showByOffice(req, res){
 
-        const {cargo} = req.query;
+        const {cargo} = req.params;
 
         try{
             const funcionario = await Funcionario.find({cargo});
@@ -29,7 +29,7 @@ module.exports = {
 
     async showByGender(req, res){
 
-        const {sexo} = req.query;
+        const {sexo} = req.params;
 
         try{
             const funcionario = await Funcionario.find({sexo});

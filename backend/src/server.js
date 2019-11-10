@@ -2,11 +2,12 @@ const express = require('express');
 const rotas = require('./rotas');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('../secrets');
+//require('../secrets');
 
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const uri = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@apprh-agri2.mongodb.net/test?retryWrites=true&w=majority`;
+//const DB_USERNAME = process.env.DB_USERNAME;
+//const DB_PASSWORD = process.env.DB_PASSWORD;
+
+const uri = `mongodb+srv://testeuser:Apprh123@apprh-agri2.mongodb.net/test?retryWrites=true&w=majority`;
 
 const api = express();
 
