@@ -54,10 +54,10 @@ function Cadastro({ navigation }) {
     return (
         <KeyboardAvoidingView style={styles.container} enabled={Platform.OS == 'ios'} behavior='padding'>
             <View style={styles.form}>
-                <Input value={funcionario.nome} onChangeText={nome => setFuncionario({ ...funcionario, nome })} placeholder="Nome" name="user" size={18} keyboardType="default" />
-                <Input value={funcionario.cargo} onChangeText={cargo => setFuncionario({ ...funcionario, cargo })} placeholder="Cargo" name="briefcase" size={18} keyboardType="default" />
-                <Input value={funcionario.salario} onChangeText={salario => setFuncionario({ ...funcionario, salario })} placeholder="Salário" name="money" size={18} keyboardType="numeric" />
-                <Input value={funcionario.carteirinha} onChangeText={carteirinha => setFuncionario({ ...funcionario, carteirinha })} placeholder="Carteirinha" name="address-card" size={18} keyboardType="numeric" />
+                <Input  onChangeText={nome => setFuncionario({ ...funcionario, nome })} placeholder="Nome" name="user" size={18} keyboardType="default" />
+                <Input  onChangeText={cargo => setFuncionario({ ...funcionario, cargo })} placeholder="Cargo" name="briefcase" size={18} keyboardType="default" />
+                <Input onChangeText={salario => setFuncionario({ ...funcionario, salario })} placeholder="Salário" name="money" size={18} keyboardType="numeric" />
+                <Input  onChangeText={carteirinha => setFuncionario({ ...funcionario, carteirinha })} placeholder="Carteirinha" name="address-card" size={18} keyboardType="numeric" />
                 <Picker
                     selectedValue={funcionario.sexo}
                     style={styles.sexo}

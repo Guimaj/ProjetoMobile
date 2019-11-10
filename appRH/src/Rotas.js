@@ -4,7 +4,6 @@ import Apresentation from './components/Apresentation';
 import Gerenciar from './components/Gerenciar';
 import Cadastro from './components/Cadastro';
 import List from './components/List';
-import Editar from './components/Editar';
 
 //rotas da aplicação
 
@@ -36,13 +35,6 @@ const Rotas = createAppContainer(
                 headerStyle:{
                     backgroundColor: '#6ce6ad',
                 },
-            }
-        },
-
-        Editar: {
-            screen: Editar,
-            navigationOptions: {
-                headerTitle:'Alteração de Funcionário'
             }
         },
 

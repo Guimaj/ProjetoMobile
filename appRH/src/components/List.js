@@ -1,59 +1,63 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, FlatList, Picker, Text, StyleSheet, View } from "react-native";
+import { SafeAreaView, FlatList, Picker, View, StyleSheet } from "react-native";
 import api from '../services/api';
 import Card from './Card';
+import Icons from 'react-native-vector-icons/FontAwesome';
 
 
-function List({navigation}) {
+function List() {
 
     const [funcionarios, setFuncionarios] = useState([]);
-    const [options, setOptions] = useState({
+    const [option, setOption] = useState({
         sexo: '',
-        cargo: ''
     });
 
     useEffect(() => {
         const fetchApi = async () => {
-            try {
-                const resp = await api.get('funcionarios');
-                const data = await resp.data;
 
+            try {
+                let resp;
+                let data;           
+                
+                if(option.sexo != ''){
+                    resp = await api.get(`/funcionarios/sexos/${option.sexo}`);
+                    data = await resp.data;
+                }
+                else{
+                    resp = await api.get('/funcionarios');
+                    data = await resp.data;
+                }
+                
                 setFuncionarios(data);
+
             } catch (error) {
-                console.log(error, "erro");
+                console.log(error);
             }
         }
         fetchApi();
     }, [funcionarios]);
 
+
     return (
 
-        <SafeAreaView style={{ backgroundColor: 'white' }}>
-            <View style={styles.optionTop}>
+        <SafeAreaView style={{ backgroundColor: 'white'}}>
+            <View style={styles.containerPicker}>
+                <Icons name='venus-mars' size={20} color='black'/>
                 <Picker
-                    selectedValue={options.sexo}
+                    selectedValue={option.sexo}
                     style={styles.optionsStyle}
+                    value='Todos'
                     onValueChange={(itemValue, itemIndex) =>
-                        setOptions({ ...options, sexo: itemValue })
+                        setOption({ ...option, sexo: itemValue })
                     }>
-                    <Picker.Item label="Masculino" value="masculino" />
-                    <Picker.Item label="Feminino" value="feminino" />
-                </Picker>
-
-                <Picker
-                    selectedValue={options.cargo}
-                    style={styles.optionsStyle}
-                    onValueChange={(itemValue, itemIndex) =>
-                        setOptions({ ...options, cargo: itemValue })
-                    }>
-                    {funcionarios.map(item => (
-                        <Picker.Item key={item._id} label={item.cargo} value={item.cargo} />
-                    ))}
-                </Picker>
+                    <Picker.Item label={'Masculino'} value={'masculino'} />
+                    <Picker.Item label={'Feminino'} value={'feminino'} />
+                    <Picker.Item label={'Todos'} value={''} />
+                </Picker>               
             </View>
             <FlatList
                 data={funcionarios}
-                renderItem={({ item }) => <Card nav={navigation} key={item._id} nome={item.nome} sexo={item.sexo} cargo={item.cargo} salario={item.salario["$numberDecimal"]} carteirinha={item.carteirinha} />}
+                renderItem={({ item }) => <Card key={item._id} nome={item.nome} sexo={item.sexo} cargo={item.cargo} salario={item.salario["$numberDecimal"]} carteirinha={item.carteirinha} />}
                 keyExtractor={item => item._id}
             />
         </SafeAreaView>
@@ -63,14 +67,15 @@ function List({navigation}) {
 
 const styles = StyleSheet.create({
     optionsStyle: {
-        width: 180,
-        height: 50,
-        //flex: "row",
+        height: 60,
+        flex:1,
+        alignSelf:'stretch'
     },
-    optionTop: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-    },
+    containerPicker:{
+        marginLeft:15,
+        flexDirection:'row',
+        alignItems:'center'
+    }
 })
 
 export default List;

@@ -5,14 +5,14 @@ import team from '../assets/team.png';
 import api from '../services/api';
 
 
-export default function Card({nav},props) {
+export default function Card(props) {
 
     return (
         <View style={styles.containerFuncionario}>
             <Image source={team} style={styles.image} />
             <View style={styles.propsFuncionario}>
                 <Text style={styles.textFuncionario}>{`Nome: ${props.nome}`}</Text>
-                <Text style={styles.textFuncionario}>{`Nome: ${props.cargo}`}</Text>
+                <Text style={styles.textFuncionario}>{`Cargo: ${props.cargo}`}</Text>
                 <Text style={styles.textFuncionario}>{`Sexo: ${props.sexo}`}</Text>
                 <Text style={styles.textFuncionario}>{`Salário: ${props.salario}`}</Text>
                 <Text style={styles.textFuncionario}>{`Carteirinha: ${props.carteirinha}`}</Text>
@@ -21,7 +21,7 @@ export default function Card({nav},props) {
                 <TouchableOpacity onPress={()=>api.delete(`/funcionarios/${props.carteirinha}`)}>
                     <Icons name='trash' size={20} color='black'/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>nav.navigate('Editar', props)}>   
+                <TouchableOpacity>   
                     <Icons name='edit' size={16} color='black'/>
                 </TouchableOpacity>
             </View>             
